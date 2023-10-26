@@ -24,26 +24,26 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout parentLayout = findViewById(R.id.parentLayout);
         draggableElement = findViewById(R.id.draggableElement);
 
-        // Get screen dimensions
+        
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int screenWidth = displayMetrics.widthPixels;
         int screenHeight = displayMetrics.heightPixels;
 
-        // Calculate the dimensions for the parent layout to cover 80% of the screen size
+        
         int parentWidth = (int) (screenWidth * 0.8);
         int parentHeight = (int) (screenHeight * 0.8);
 
-        // Calculate margins for the parent layout to center it on the screen
+        
         int horizontalMargin = (screenWidth - parentWidth) / 2;
         int verticalMargin = (screenHeight - parentHeight) / 2;
 
-        // Set the dimensions and margins for the parent layout
+       
         FrameLayout.LayoutParams parentParams = new FrameLayout.LayoutParams(parentWidth, parentHeight);
         parentParams.setMargins(horizontalMargin, verticalMargin, horizontalMargin, verticalMargin);
         parentLayout.setLayoutParams(parentParams);
 
-        // Set the constraints for the draggable element
+        
         parentLayout.post(() -> {
             int maxWidth = parentLayout.getWidth() - draggableElement.getWidth();
             int maxHeight = parentLayout.getHeight() - draggableElement.getHeight();
